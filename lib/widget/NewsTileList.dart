@@ -6,33 +6,29 @@ import '../model/articlemodel.dart';
 import '../services/NewsServices.dart';
 import 'NewsTile.dart';
 
-class NewsTileList extends StatefulWidget {
 
-   NewsTileList({
-    super.key,
-  });
+class NewsTileList extends StatelessWidget {
 
-  @override
-  State<NewsTileList> createState() => _NewsTileListState();
-}
 
-class _NewsTileListState extends State<NewsTileList> {
-  bool isloading=true;
-   List<articleModel> articles=[];
-  @override
-  initState() {
-    getnews();
 
-    super.initState();
-  }
+  List<articleModel>? articles ;
+   NewsTileList({super.key,required this.articles});
+
   @override
   Widget build(BuildContext context) {
-    return isloading? Center(child: CircularProgressIndicator()) :  SliverList(
-        delegate: SliverChildBuilderDelegate(childCount: articles.length,
+    return SliverList(
+        delegate: SliverChildBuilderDelegate(childCount: articles?.length,
                 (context, indix) {
+              return newstile(articlemodell: articles![indix],);
+            })); ;
+  }
+}
 
-              return newstile(articlemodell: articles[indix],);
-            }));
+
+
+
+
+
 
     // return ListView.builder(
     //   //TO BUILD ALL CHILD
@@ -44,16 +40,6 @@ class _NewsTileListState extends State<NewsTileList> {
     //     itemBuilder: (context, indix) {
     //       return newstile(articlemodell: articles[indix],);
     //     });
-  }
 
- Future<void> getnews()async{
 
-   articles=await Newsservices().get_generalnews();
-   isloading=false;
-   setState(() {
-
-   });
-
-  }
-}
 

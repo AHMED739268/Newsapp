@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mynewsapp/services/NewsServices.dart';
-import 'package:mynewsapp/views/DraggableButtonExample.dart';
+
 import 'package:mynewsapp/views/home_view.dart';
 
 Future<void> main()  async {

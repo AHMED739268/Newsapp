@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../model/categorymodel.dart';
+import '../views/clickablewidget_view.dart';
 
 class CategoryWidget extends StatefulWidget {
   final categorymodel category;
@@ -24,9 +25,12 @@ class _CategoryWidgetState extends State<CategoryWidget> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if (widget.category.ontap != null) {
-          widget.category.ontap!(context);
-        }
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ClickableWidgetView(categoryy: widget.category.name,),
+          ),
+        );
       },
       child: Container(
         margin: EdgeInsets.only(top: 15, left: 10),

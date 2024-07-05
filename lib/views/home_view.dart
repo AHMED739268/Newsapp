@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../model/articlemodel.dart';
-import '../services/NewsServices.dart';
-import '../widget/NewsTileList.dart';
+
 import '../widget/NewsTileList_Builder.dart';
+import '../widget/NewsTileList_Builder2.dart';
 import '../widget/categorylist.dart';
 
 class homeview extends StatelessWidget {
@@ -44,7 +43,7 @@ class homeview extends StatelessWidget {
             slivers: [
               SliverToBoxAdapter(child: CategoryList()),
               SliverToBoxAdapter(child: SizedBox(height: 16)),
-               NewsTileList_Builder()
+              NewsTileList_Builder2()
 
             ],
           ),
